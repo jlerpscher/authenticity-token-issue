@@ -12,5 +12,9 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
+
+    <% if !cookies[:cookies_policy_accepted] && !current_user&.cookies_policy_accepted %>
+      <%= render 'layouts/cookies_banner' %>
+    <% end %>
   </body>
 </html>
